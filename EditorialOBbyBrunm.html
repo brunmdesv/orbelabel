@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linha Editorial - Orbe Label</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #fae7e7 0%, #f296a4 100%);
+            color: #222222;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 100%;
+            padding: 0 20px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #d04f76 0%, #f296a4 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section {
+            background: white;
+            margin: 20px 0;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(208, 79, 118, 0.1);
+            border: 1px solid #fae7e7;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #d04f76, #f296a4);
+        }
+
+        .section-title {
+            color: #d04f76;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .emoji {
+            font-size: 2rem;
+        }
+
+        .planning-grid {
+            display: grid;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .planning-item {
+            background: #fae7e7;
+            padding: 15px;
+            border-radius: 12px;
+            border-left: 4px solid #d04f76;
+        }
+
+        .planning-item strong {
+            color: #222222;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .price-highlight {
+            background: linear-gradient(135deg, #d04f76, #f296a4);
+            color: white;
+            padding: 15px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 15px 0;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .pillar-grid {
+            display: grid;
+            gap: 12px;
+        }
+
+        .pillar-item {
+            background: linear-gradient(135deg, #fae7e7, #f296a4);
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid #f296a4;
+            transition: transform 0.3s ease;
+        }
+
+        .pillar-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .pillar-title {
+            font-weight: bold;
+            color: #d04f76;
+            margin-bottom: 5px;
+        }
+
+        .pillar-desc {
+            font-size: 0.9rem;
+            color: #222222;
+            opacity: 0.8;
+        }
+
+        .week-container {
+            margin-bottom: 25px;
+        }
+
+        .week-title {
+            background: #222222;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .post-card {
+            background: #fae7e7;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border: 2px solid #f296a4;
+            position: relative;
+        }
+
+        .post-type {
+            background: #d04f76;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            position: absolute;
+            top: -10px;
+            right: 15px;
+        }
+
+        .post-theme {
+            color: #d04f76;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .post-content {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .hashtags {
+            color: #d04f76;
+            font-weight: bold;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        .persona-grid {
+            display: grid;
+            gap: 15px;
+        }
+
+        .persona-card {
+            background: linear-gradient(135deg, #fae7e7, white);
+            padding: 20px;
+            border-radius: 15px;
+            border: 2px solid #f296a4;
+        }
+
+        .persona-name {
+            color: #d04f76;
+            font-weight: bold;
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .persona-age {
+            background: #222222;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .persona-details {
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .story-grid {
+            display: grid;
+            gap: 12px;
+        }
+
+        .story-card {
+            background: linear-gradient(135deg, #f296a4, #fae7e7);
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid #d04f76;
+        }
+
+        .story-week {
+            font-weight: bold;
+            color: #222222;
+            margin-bottom: 8px;
+        }
+
+        .story-content {
+            font-size: 0.9rem;
+            color: #222222;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #d04f76, #222222);
+            color: white;
+            padding: 25px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .cta-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .cta-text {
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+
+        .scroll-indicator {
+            text-align: center;
+            padding: 20px;
+            color: #d04f76;
+            font-size: 0.9rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 1; }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .section {
+                margin: 15px 0;
+                padding: 20px;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>ORBE LABEL</h1>
+        <p class="subtitle">Linha Editorial & Estratégia de Conteúdo</p>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <h2 class="section-title">
+                <span class="emoji">📅</span>
+                Planejamento Mensal
+            </h2>
+            <div class="planning-grid">
+                <div class="planning-item">
+                    <strong>Frequência:</strong> 2 posts/semana (8 no mês)
+                </div>
+                <div class="planning-item">
+                    <strong>Formato:</strong> 6 artes estáticas + 2 carrosséis
+                </div>
+                <div class="planning-item">
+                    <strong>Stories:</strong> 2 por semana (total 8)
+                </div>
+                <div class="planning-item">
+                    <strong>Tom:</strong> Inspirador, chic, humanizado, com gatilho de escassez
+                </div>
+            </div>
+            
+            <div class="price-highlight">
+                💰 R$ 89,90 (promoção - primeiros 300 frascos)<br>
+                Depois: R$ 119,90
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">
+                <span class="emoji">🧱</span>
+                Pilares de Conteúdo
+            </h2>
+            <div class="pillar-grid">
+                <div class="pillar-item">
+                    <div class="pillar-title">Beleza que vem de dentro</div>
+                    <div class="pillar-desc">Posicionamento</div>
+                </div>
+                <div class="pillar-item">
+                    <div class="pillar-title">Ciência & ativos poderosos</div>
+                    <div class="pillar-desc">Educacional</div>
+                </div>
+                <div class="pillar-item">
+                    <div class="pillar-title">Estética & lifestyle premium</div>
+                    <div class="pillar-desc">Aspiracional</div>
+                </div>
+                <div class="pillar-item">
+                    <div class="pillar-title">Constância & rotina</div>
+                    <div class="pillar-desc">Consciência de uso</div>
+                </div>
+                <div class="pillar-item">
+                    <div class="pillar-title">Transformação & autoestima</div>
+                    <div class="pillar-desc">Emocional</div>
+                </div>
+                <div class="pillar-item">
+                    <div class="pillar-title">Escassez & oferta</div>
+                    <div class="pillar-desc">Urgência</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">
+                <span class="emoji">📱</span>
+                Feed: Posts e Carrosséis
+            </h2>
+
+            <div class="week-container">
+                <div class="week-title">Semana 1</div>
+                
+                <div class="post-card">
+                    <div class="post-type">Carrossel</div>
+                    <div class="post-theme">"O que tem dentro da orbe?" + preço lançamento</div>
+                    <div class="post-content">
+                        <strong>Capa:</strong> Frasco na mão com unhas rosa + "o que tem dentro da orbe?" + selo "lançamento R$ 89,90"<br><br>
+                        <strong>Slides 2-5:</strong> Ícones minimalistas dos ativos + benefício curto<br><br>
+                        <strong>Legenda:</strong> "16 ativos poderosos + preço de lançamento R$ 89,90 (só nos primeiros 300 frascos)! 🤩"
+                    </div>
+                    <div class="hashtags">#orbelabel #escassez #promo89</div>
+                </div>
+
+                <div class="post-card">
+                    <div class="post-type">Estático</div>
+                    <div class="post-theme">"Beleza que vem de dentro" + oferta</div>
+                    <div class="post-content">
+                        <strong>Visual:</strong> Mulher elegante segurando frasco, fundo rosa claro<br><br>
+                        <strong>Legenda:</strong> "tua beleza começa por dentro – e por R$ 89,90 neste lançamento, fica ainda melhor. ✨"
+                    </div>
+                    <div class="hashtags">#saúdeDeDentro #promoçãoLimitada</div>
+                </div>
+            </div>
+
+            <div class="week-container">
+                <div class="week-title">Semana 2</div>
+                
+                <div class="post-card">
+                    <div class="post-type">Estático</div>
+                    <div class="post-theme">"Adeus queda de cabelo" + urgência</div>
+                    <div class="post-content">
+                        <strong>Visual:</strong> Close nos fios fortes + selo "últimas unidades R$ 89,90"<br><br>
+                        <strong>Legenda:</strong> "cansei de ver fio no travesseiro. 😌 orbe atua na raiz, reduz a queda e fortalece de dentro pra fora"
+                    </div>
+                    <div class="hashtags">#adeusQueda #escassez</div>
+                </div>
+
+                <div class="post-card">
+                    <div class="post-type">Estático</div>
+                    <div class="post-theme">"Rotina é tudo" + lembrete de estoque</div>
+                    <div class="post-content">
+                        <strong>Visual:</strong> Frasco + café + planner no dia 1<br><br>
+                        <strong>Legenda:</strong> "2 cápsulas por dia = ritual de beleza e bem-estar. 🌸"
+                    </div>
+                    <div class="hashtags">#rotinaDeBeleza #promoLimitada</div>
+                </div>
+            </div>
+
+            <div class="week-container">
+                <div class="week-title">Semana 3</div>
+                
+                <div class="post-card">
+                    <div class="post-type">Carrossel</div>
+                    <div class="post-theme">"Tem dúvida? Resolvemos!" + oferta</div>
+                    <div class="post-content">
+                        <strong>FAQ incluindo:</strong><br>
+                        • "Posso tomar o dia todo?" → "2 cápsulas/dia, com refeição"<br>
+                        • "Vai engordar?" → "Não. Cromo controla fome"<br>
+                        • "Quando vejo resultado?" → "30 dias; ideal 3 meses"
+                    </div>
+                    <div class="hashtags">#faqOrbe #escassez</div>
+                </div>
+
+                <div class="post-card">
+                    <div class="post-type">Estático</div>
+                    <div class="post-theme">"Lifestyle orbe" + exclusividade</div>
+                    <div class="post-content">
+                        <strong>Visual:</strong> Mulher chique num lounge, unhas rosa, frasco na mesa<br><br>
+                        <strong>Legenda:</strong> "ORBE é lifestyle premium. por R$ 89,90 e só 300 unid., você entra pra um clube exclusivo ✨"
+                    </div>
+                    <div class="hashtags">#premiumBeauty #promoLimitada</div>
+                </div>
+            </div>
+
+            <div class="week-container">
+                <div class="week-title">Semana 4</div>
+                
+                <div class="post-card">
+                    <div class="post-type">Estático</div>
+                    <div class="post-theme">"Mais energia no dia" + urgência</div>
+                    <div class="post-content">
+                        <strong>Visual:</strong> Mulher se alongando ao ar livre<br><br>
+                        <strong>Legenda:</strong> "comece o dia com energia e beleza! ☀️ e o melhor: R$ 89,90 nas primeiras 300 unidades"
+                    </div>
+                    <div class="hashtags">#energiaOrbe #últimasUnidades</div>
+                </div>
+
+                <div class="post-card">
+                    <div class="post-type">Estático</div>
+                    <div class="post-theme">"Invista na sua beleza" (CTA final)</div>
+                    <div class="post-content">
+                        <strong>Visual:</strong> Close no rótulo + selo "16 ativos + preço lançamento"<br><br>
+                        <strong>Legenda:</strong> "você não compra só beleza. investe em saúde, autoestima e bem-estar. ✨"
+                    </div>
+                    <div class="hashtags">#investimentoBeleza #escassez</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">
+                <span class="emoji">📲</span>
+                Stories Estratégicos
+            </h2>
+            <div class="story-grid">
+                <div class="story-card">
+                    <div class="story-week">Semana 1</div>
+                    <div class="story-content">
+                        <strong>Story 1:</strong> Boomerang da cápsula caindo na mão + "lançamento único"<br>
+                        <strong>Story 2:</strong> Adaptado do carrossel "o que tem dentro da orbe?"
+                    </div>
+                </div>
+                <div class="story-card">
+                    <div class="story-week">Semana 2</div>
+                    <div class="story-content">
+                        <strong>Story 1:</strong> Vídeo do planner + "rotina + constância"<br>
+                        <strong>Story 2:</strong> Adaptado de "adeus queda de cabelo"
+                    </div>
+                </div>
+                <div class="story-card">
+                    <div class="story-week">Semana 3</div>
+                    <div class="story-content">
+                        <strong>Story 1:</strong> "❓ Perguntas sobre ORBE?" + caixa de perguntas<br>
+                        <strong>Story 2:</strong> Adaptado do carrossel FAQ
+                    </div>
+                </div>
+                <div class="story-card">
+                    <div class="story-week">Semana 4</div>
+                    <div class="story-content">
+                        <strong>Story 1:</strong> Boomerang mulher alongando + "energia + beleza"<br>
+                        <strong>Story 2:</strong> CTA final + "investimento que cabe no seu bolso 💗"
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">
+                <span class="emoji">👩‍💼</span>
+                Personas
+            </h2>
+            <div class="persona-grid">
+                <div class="persona-card">
+                    <div class="persona-name">Ana</div>
+                    <div class="persona-age">24 anos</div>
+                    <div class="persona-details">
+                        <strong>Profissão:</strong> Atendente de telemarketing (~1 SM)<br>
+                        <strong>Comportamento:</strong> Assiste tutoriais de skincare no YouTube<br>
+                        <strong>Objetivo:</strong> Busca autoestima e fios fortes sem gastar muito
+                    </div>
+                </div>
+                <div class="persona-card">
+                    <div class="persona-name">Bianca</div>
+                    <div class="persona-age">32 anos</div>
+                    <div class="persona-details">
+                        <strong>Profissão:</strong> Assistente administrativa (~2 SM)<br>
+                        <strong>Comportamento:</strong> Valoriza brunchs e cafés fotogênicos<br>
+                        <strong>Objetivo:</strong> Quer pele radiante e produtos glam acessíveis
+                    </div>
+                </div>
+                <div class="persona-card">
+                    <div class="persona-name">Carla</div>
+                    <div class="persona-age">45 anos</div>
+                    <div class="persona-details">
+                        <strong>Profissão:</strong> Gerente de RH (≥4 SM)<br>
+                        <strong>Comportamento:</strong> Rotina corrida, foca em saúde e aparência<br>
+                        <strong>Objetivo:</strong> Prefere exclusividade, lê reviews, quer ativos premium
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <div class="cta-title">ORBE é para todas que se cuidam</div>
+            <div class="cta-text">
+                Do salário mínimo ao mais alto.<br>
+                Beleza que vem de dentro, acessível para todas. ✨
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            ✨ Linha Editorial completa - Orbe Label ✨
+        </div>
+    </div>
+</body>
+</html>
