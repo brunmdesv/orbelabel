@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linha Editorial ORBE - Apresentação</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #FFFEFE 0%, #FE97A8 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #D9476E 0%, #FE97A8 100%);
+            color: #FFFEFE;
+            padding: 40px 0;
+            text-align: center;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(217, 71, 110, 0.3);
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header p {
+            font-size: 1.4em;
+            opacity: 0.9;
+        }
+
+        .section {
+            background: #FFFEFE;
+            margin: 30px 0;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border-left: 5px solid #D9476E;
+        }
+
+        .section h2 {
+            color: #D9476E;
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            border-bottom: 3px solid #FE97A8;
+            padding-bottom: 10px;
+        }
+
+        .post-card {
+            background: linear-gradient(135deg, #FFFEFE 0%, #FE97A8 10%);
+            border: 2px solid #FE97A8;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 25px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .post-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(217, 71, 110, 0.2);
+        }
+
+        .post-title {
+            color: #D9476E;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .post-subtitle {
+            color: #FE97A8;
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .post-details {
+            background: #FFFEFE;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+        .post-details h4 {
+            color: #D9476E;
+            margin-bottom: 10px;
+        }
+
+        .carousel-slides {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .slide {
+            background: #FFFEFE;
+            border: 2px solid #FE97A8;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .slide h5 {
+            color: #D9476E;
+            margin-bottom: 10px;
+        }
+
+        .slide p {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .copy-section {
+            background: linear-gradient(135deg, #FE97A8 0%, #D9476E 100%);
+            color: #FFFEFE;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+        .copy-section h4 {
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .copy-section p {
+            font-style: italic;
+            line-height: 1.5;
+        }
+
+        .pillar-badge {
+            background: #D9476E;
+            color: #FFFEFE;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            display: inline-block;
+            margin: 10px 0;
+        }
+
+        .objective {
+            background: rgba(254, 151, 168, 0.2);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #FE97A8;
+            margin: 15px 0;
+        }
+
+        .price-highlight {
+            background: #D9476E;
+            color: #FFFEFE;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .nav-menu {
+            background: rgba(255, 254, 254, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .nav-link {
+            background: #FE97A8;
+            color: #FFFEFE;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background: #D9476E;
+            transform: scale(1.05);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: #D9476E;
+            color: #FFFEFE;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1.1em;
+            margin-top: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .header p {
+                font-size: 1.2em;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .post-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>LINHA EDITORIAL ORBE</h1>
+            <p>Estratégia Completa de Conteúdo para Transformação e Beleza</p>
+        </div>
+
+        <div class="nav-menu">
+            <a href="#overview" class="nav-link">Visão Geral</a>
+            <a href="#post1" class="nav-link">Post 1 - Carrossel</a>
+            <a href="#post2" class="nav-link">Post 2 - Efeito Dominó</a>
+            <a href="#post3" class="nav-link">Post 3 - Mapa da Mina</a>
+            <a href="#post4" class="nav-link">Post 4 - Despertar</a>
+            <a href="#post5" class="nav-link">Post 5 - Relógio</a>
+            <a href="#post6" class="nav-link">Post 6 - Guia Essencial</a>
+            <a href="#post7" class="nav-link">Post 7 - Abraço</a>
+            <a href="#post8" class="nav-link">Post 8 - Brilho Interior</a>
+        </div>
+
+        <div id="overview" class="section">
+            <h2>Visão Geral da Estratégia</h2>
+            <div class="stats">
+                <div class="stat-card">
+                    <span class="stat-number">8</span>
+                    <span class="stat-label">Posts Estratégicos</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">2</span>
+                    <span class="stat-label">Carrosséis Completos</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">6</span>
+                    <span class="stat-label">Posts Estáticos</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">16</span>
+                    <span class="stat-label">Ativos da ORBE</span>
+                </div>
+            </div>
+            <p>Esta linha editorial foi desenvolvida para posicionar a ORBE como a solução definitiva para beleza e bem-estar, abordando diferentes pilares estratégicos e conectando-se emocionalmente com o público-alvo.</p>
+        </div>
+
+        <div id="post1" class="section">
+            <div class="post-card">
+                <div class="post-title">POST 1 - CARROSSEL</div>
+                <div class="post-subtitle">"O Peso Invisível: Quando a Beleza Pesa na Alma"</div>
+                
+                <div class="pillar-badge">Pilar: Transformação e Autoestima</div>
+                
+                <div class="objective">
+                    <strong>Objetivo:</strong> Criar empatia, validar a dor e posicionar a ORBE como a solução que eleva não só a beleza física, mas a autoestima e a saúde emocional.
+                </div>
+
+                <div class="post-details">
+                    <h4>Conceito</h4>
+                    <p>Um carrossel que explora a dor emocional da insegurança com a aparência (cabelo, pele, unhas) e como isso afeta a autoestima e o bem-estar mental. A ORBE é apresentada como o alívio para esse "peso invisível", nutrindo a confiança de dentro para fora.</p>
+                </div>
+
+                <div class="carousel-slides">
+                    <div class="slide">
+                        <h5>Slide 1 - Capa</h5>
+                        <p><strong>O Peso Invisível:</strong><br>Quando a Beleza Pesa na Alma</p>
+                    </div>
+                    <div class="slide">
+                        <h5>Slide 2 - Card 1</h5>
+                        <p><strong>O Espelho Que Não Reflete Sua Essência</strong><br>Você se olha no espelho e não reconhece a mulher vibrante que sabe que existe aí dentro? Cabelos sem brilho, pele opaca, unhas fracas...</p>
+                    </div>
+                    <div class="slide">
+                        <h5>Slide 3 - Card 2</h5>
+                        <p><strong>O Cansaço Que Rouba Seu Brilho</strong><br>A rotina exaustiva, o estresse do dia a dia... Tudo isso drena sua energia e reflete na sua pele, no seu cabelo, no seu humor.</p>
+                    </div>
+                    <div class="slide">
+                        <h5>Slide 4 - Card 3</h5>
+                        <p><strong>A Frustração dos Cuidados Que Não Funcionam</strong><br>Já tentou de tudo? Cremes, tratamentos, dietas... E nada realmente funciona?</p>
+                    </div>
+                    <div class="slide">
+                        <h5>Slide 5 - Card 4</h5>
+                        <p><strong>A Solução Que Você Merece: ORBE</strong><br>Imagine uma beleza que nasce de dentro, que nutre cada fio, cada célula da sua pele...</p>
+                    </div>
+                    <div class="slide">
+                        <h5>Slide 6 - CTA</h5>
+                        <p><strong>Liberte-se do Peso. Floresça com ORBE!</strong></p>
+                        <div class="price-highlight">De R$89,90 por apenas R$59,90!</div>
+                    </div>
+                </div>
+
+                <div class="copy-section">
+                    <h4>Copy da Legenda</h4>
+                    <p>"Você já sentiu o peso invisível da insegurança com a sua beleza? Cabelos sem vida, pele cansada, unhas que não crescem... Essas dores vão além da aparência e afetam sua autoestima e bem-estar. Mas a boa notícia é que você não precisa mais carregar esse fardo! A ORBE é o alívio que você esperava..."</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="post2" class="section">
+            <div class="post-card">
+                <div class="post-title">POST 2 - ESTÁTICO</div>
+                <div class="post-subtitle">"O Efeito Dominó da Beleza: Um Pequeno Gesto, Grandes Transformações"</div>
+                
+                <div class="pillar-badge">Pilar: Constância e Rotina</div>
+                
+                <div class="objective">
+                    <strong>Objetivo:</strong> Mostrar que a ORBE é um investimento simples com resultados exponenciais, incentivando a consistência e a percepção do valor a longo prazo.
+                </div>
+
+                <div class="post-details">
+                    <h4>Conceito</h4>
+                    <p>Um post estático que utiliza a metáfora do efeito dominó para ilustrar como um pequeno gesto diário (tomar a ORBE) pode desencadear uma série de grandes transformações em cascata na vida da mulher.</p>
+                </div>
+
+                <div class="copy-section">
+                    <h4>Copy da Legenda</h4>
+                    <p>"Você sabia que um pequeno gesto diário pode desencadear uma revolução na sua beleza e bem-estar? Apresentamos o Efeito Dominó ORBE! Com apenas uma cápsula de ORBE por dia, você inicia uma cascata de transformações: cabelos mais fortes, pele radiante, unhas impecáveis, mais energia e um humor que contagia."</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="post3" class="section">
+            <div class="post-card">
+                <div class="post-title">POST 3 - ESTÁTICO</div>
+                <div class="post-subtitle">"O Mapa da Mina da Beleza: Desvendando os 16 Ativos da ORBE"</div>
+                
+                <div class="pillar-badge">Pilar: Ciência e Ativos Poderosos</div>
+                
+                <div class="objective">
+                    <strong>Objetivo:</strong> Educar o público sobre a riqueza da fórmula da ORBE, desmistificando a ciência e reforçando o valor do produto como uma solução completa e transparente.
+                </div>
+
+                <div class="post-details">
+                    <h4>Conceito</h4>
+                    <p>Um post estático que utiliza a metáfora de um "mapa do tesouro" para desvendar os 16 ativos da ORBE e seus benefícios de forma clara e didática.</p>
+                </div>
+
+                <div class="copy-section">
+                    <h4>Copy da Legenda</h4>
+                    <p>"Você já se perguntou qual é o verdadeiro segredo para uma beleza que transborda? Prepare-se para desvendar o Mapa da Mina da Beleza da ORBE! Nossa fórmula é um tesouro de 16 ativos cuidadosamente selecionados, cada um com um papel fundamental na sua jornada de transformação."</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="post4" class="section">
+            <div class="post-card">
+                <div class="post-title">POST 4 - ESTÁTICO</div>
+                <div class="post-subtitle">"O Despertar da Confiança: Quando a Beleza Encontra a Força Interior"</div>
+                
+                <div class="pillar-badge">Pilar: Jornada de Autodescoberta e Empoderamento</div>
+                
+                <div class="objective">
+                    <strong>Objetivo:</strong> Conectar a ORBE à sensação de empoderamento e autoconfiança, mostrando que o produto é a chave para uma vida mais plena e vibrante.
+                </div>
+
+                <div class="post-details">
+                    <h4>Conceito</h4>
+                    <p>Um post estático que utiliza a metáfora de um despertar ou de uma flor desabrochando para representar o florescimento da confiança e da força interior que a ORBE ajuda a despertar.</p>
+                </div>
+
+                <div class="copy-section">
+                    <h4>Copy da Legenda</h4>
+                    <p>"Você já sentiu que sua beleza interior está pronta para desabrochar? Com a ORBE, sua confiança floresce e sua força interior se revela! Nossos 16 ativos trabalham em sinergia para nutrir seu corpo de dentro para fora, refletindo em cabelos mais fortes, pele radiante e unhas impecáveis."</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="post5" class="section">
+            <div class="post-card">
+                <div class="post-title">POST 5 - ESTÁTICO</div>
+                <div class="post-subtitle">"O Relógio da Beleza: Não Deixe o Tempo Roubar Seu Brilho"</div>
+                
+                <div class="pillar-badge">Pilar: Escassez e Oferta</div>
+                
+                <div class="objective">
+                    <strong>Objetivo:</strong> Criar um senso de urgência relacionado à passagem do tempo e à importância da prevenção. Posicionar a ORBE como um investimento inteligente na beleza e saúde a longo prazo.
+                </div>
+
+                <div class="post-details">
+                    <h4>Conceito</h4>
+                    <p>Um post estático que utiliza a metáfora do tempo e do relógio para alertar sobre a importância de agir agora para preservar a beleza e a vitalidade.</p>
+                </div>
+
+                <div class="copy-section">
+                    <h4>Copy da Legenda</h4>
+                    <p>"O tempo não para, e a sua beleza também não deveria! Você já sentiu que o relógio está correndo contra o seu brilho? Rugas, linhas finas, perda de vitalidade... São sinais que nos lembram da importância de agir agora."</p>
+                </div>
+
+                <div class="price-highlight">Oferta Especial: De R$89,90 por APENAS R$59,90!</div>
+            </div>
+        </div>
+
+        <div id="post6" class="section">
+            <div class="post-card">
+                <div class="post-title">POST 6 - CARROSSEL</div>
+                <div class="post-subtitle">"O Guia Essencial da ORBE: Desmistificando Mitos e Revelando Verdades"</div>
+                
+                <div class="pillar-badge">Pilar: Ciência Descomplicada e Inovação</div>
+                
+                <div class="objective">
+                    <strong>Objetivo:</strong> Aumentar a credibilidade da marca, educar o público sobre a eficácia da ORBE e combater a desinformação.
+                </div>
+
+                <div class="post-details">
+                    <h4>Conceito</h4>
+                    <p>Um carrossel que aborda mitos comuns sobre suplementos e beleza, desmistificando-os e apresentando a verdade com base na ciência da ORBE.</p>
+                </div>
+
+                <div class="carousel-slides">
+                    <div class="slide">
+                        <h5>Slide 1 - Capa</h5>
+                        <p><strong>O Guia Essencial da ORBE:</strong><br>Desmistificando Mitos e Revelando Verdades</p>
+                    </div>
+                    <div class="slide">
+                        <h5>Slide 2 - Mito 1</h5>
+                        <p><strong>Suplemento é Tudo Igual?</strong><br>Verdade: A ORBE se destaca pela fórmula exclusiva com 16 ativos em sinergia</p>
+                    </div>
+                    <div class="slide">
+                        <h5>Slide 3 - Mito 2</h5>
+                        <p><strong>Resultados Demoram Anos?</strong><br>Verdade: Resultados visíveis em 30 dias! Brilho completo em 3 meses</p>
+                    </div>
+                    <div class="slide">
+                        <h5>Slide 4 - Mito 3</h5>
+                        <p><strong>É Só para Cabelo, Pele e Unha?</strong><br>Verdade: Vai além! Energia, imunidade e bem-estar geral</p>
+                    </div>
+                    <div class="slide">
+                        <h5>Slide 5 - Mito 4</h5>
+                        <p><strong>Suplemento Vicia ou Faz Mal?</strong><br>Verdade: Seguro, registrado e aprovado pela ANVISA</p>
+                    </div>
+                    <div class="slide">
+                        <h5>Slide 6 - CTA</h5>
+                        <p><strong>Desvende a Verdade. Viva a Beleza ORBE!</strong></p>
+                        <div class="price-highlight">De R$89,90 por apenas R$59,90!</div>
+                    </div>
+                </div>
+
+                <div class="copy-section">
+                    <h4>Copy da Legenda</h4>
+                    <p>"Cansada de informações desencontradas sobre suplementos? Chega de mitos! A ORBE está aqui para desvendar a verdade e te guiar para uma beleza que transborda de dentro para fora. Neste Guia Essencial ORBE, desmistificamos 4 crenças comuns e revelamos o poder da nossa fórmula exclusiva com 16 ativos."</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="post7" class="section">
+            <div class="post-card">
+                <div class="post-title">POST 7 - ESTÁTICO</div>
+                <div class="post-subtitle">"O Abraço da ORBE: Conforto e Bem-Estar em Cada Cápsula"</div>
+                
+                <div class="pillar-badge">Pilar: Momentos de Bem-Estar e Rituais de Cuidado</div>
+                
+                <div class="objective">
+                    <strong>Objetivo:</strong> Conectar a ORBE à sensação de relaxamento, alívio do estresse e bem-estar emocional, mostrando que o produto é um aliado para os momentos de autocuidado.
+                </div>
+
+                <div class="post-details">
+                    <h4>Conceito</h4>
+                    <p>Um post estático que utiliza a metáfora de um abraço ou de um momento de acolhimento para representar o conforto e o bem-estar que a ORBE proporciona.</p>
+                </div>
+
+                <div class="copy-section">
+                    <h4>Copy da Legenda</h4>
+                    <p>"Em meio à correria do dia a dia, você merece um momento só seu. Um abraço que nutre, acalma e renova. Esse é o Abraço da ORBE! Com 16 ativos que cuidam do seu corpo e da sua mente, a ORBE é o seu convite para um ritual de bem-estar que vai além da beleza."</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="post8" class="section">
+            <div class="post-card">
+                <div class="post-title">POST 8 - ESTÁTICO</div>
+                <div class="post-subtitle">"O Brilho Que Vem de Dentro: Sua História de Transformação com ORBE"</div>
+                
+                <div class="pillar-badge">Pilar: Desafios e Transformações Reais</div>
+                
+                <div class="objective">
+                    <strong>Objetivo:</strong> Gerar prova social e inspirar a audiência através de histórias de transformação autênticas. Criar um senso de que a ORBE é a chave para uma mudança profunda e duradoura.
+                </div>
+
+                <div class="post-details">
+                    <h4>Conceito</h4>
+                    <p>Um post estático que celebra a transformação real das mulheres que usam ORBE, utilizando uma abordagem de "antes e depois" emocional e focada no brilho interior.</p>
+                </div>
+
+                <div class="copy-section">
+                    <h4>Copy da Legenda</h4>
+                    <p>"Você está pronta para escrever o próximo capítulo da sua história? Aquela em que você se sente plena, radiante e com um brilho que vem de dentro? Na ORBE, acreditamos que a verdadeira beleza é uma jornada de transformação. E temos visto histórias incríveis de mulheres que, com a ORBE, redescobriram sua confiança, sua energia e a alegria de viver plenamente."</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Resumo Estratégico</h2>
+            <div class="post-details">
+                <h4>Pilares Abordados</h4>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>Transformação e Autoestima</li>
+                    <li>Constância e Rotina</li>
+                    <li>Ciência e Ativos Poderosos</li>
+                    <li>Jornada de Autodescoberta e Empoderamento</li>
+                    <li>Escassez e Oferta</li>
+                    <li>Ciência Descomplicada e Inovação</li>
+                    <li>Momentos de Bem-Estar e Rituais de Cuidado</li>
+                    <li>Desafios e Transformações Reais</li>
+                </ul>
+            </div>
+            
+            <div class="price-highlight" style="margin-top: 30px;">
+                Oferta Especial de Lançamento: De R$89,90 por apenas R$59,90!
+            </div>
+        </div>
+    </div>
+</body>
+</html>
